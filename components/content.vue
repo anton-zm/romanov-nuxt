@@ -5,15 +5,15 @@
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style scoped>
 .content {
   margin: 0 auto;
-  max-width: 1320px;
+  max-width: 1280px;
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1300px) {
   .content {
     padding: 0 50px;
   }

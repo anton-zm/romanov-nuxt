@@ -1,17 +1,24 @@
 <template>
   <main>
-    <text-content :title="about.title" :text="about.text"></text-content>
+    <text-content
+      id="about"
+      :title="about.title"
+      :text="about.text"
+    ></text-content>
     <grid />
+    <Uk />
   </main>
 </template>
 
 <script>
 import Paragraph from '@/components/paragraph'
 import Grid from '@/components/grid'
+import Uk from '@/components/uk'
 export default {
   components: {
     'text-content': Paragraph,
     grid: Grid,
+    Uk,
   },
   data() {
     return {

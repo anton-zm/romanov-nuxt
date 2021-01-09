@@ -1,13 +1,15 @@
 <template>
   <content-box>
-    <nav class="menu" id="header-menu">
-      <nuxt-link to="/" class="menu__link menu__link_active">Главная</nuxt-link>
-      <nuxt-link to="#about" class="menu__link">О доме</nuxt-link>
-      <nuxt-link to="#uk" class="menu__link">Наша УК</nuxt-link>
-      <nuxt-link to="#plans" class="menu__link">Планировки</nuxt-link>
-      <nuxt-link to="#chats" class="menu__link">Чат соседей</nuxt-link>
-      <nuxt-link to="#meetings" class="menu__link">Собрания</nuxt-link>
-    </nav>
+    <ul class="menu" id="header-menu">
+      <li
+        v-for="link in menu"
+        :key="link.href"
+        @click="scroll(link.href)"
+        class="menu__link"
+      >
+        {{ link.label }}
+      </li>
+    </ul>
   </content-box>
 </template>
 
@@ -17,6 +19,25 @@ export default {
   components: {
     'content-box': Content,
   },
+  methods: {
+    scroll(id) {
+      const site = document.querySelector(`#${id}`)
+      site.scrollIntoView({
+        behavior: 'smooth',
+      })
+    },
+  },
+  data() {
+    return {
+      menu: [
+        { label: 'О доме', href: 'about' },
+        { label: 'Наша УК', href: 'uk' },
+        { label: 'Планировки', href: 'flats' },
+        { label: 'Чат соседей', href: 'chats' },
+        { label: 'Собрания', href: 'meetings' },
+      ],
+    }
+  },
 }
 </script>
 
@@ -25,6 +46,7 @@ export default {
   margin: 0 0 0 auto;
   display: flex;
   justify-content: flex-end;
+  list-style-type: none;
 }
 .menu__link {
   text-decoration: none;
@@ -34,6 +56,7 @@ export default {
   color: #ffffff;
   padding: 40px 20px;
   transition: 0.4s;
+  cursor: pointer;
 }
 .menu__link:last-of-type {
   padding: 40px 0 40px 20px;
