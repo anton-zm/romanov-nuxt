@@ -7,6 +7,7 @@
     ></text-content>
     <grid />
     <Uk />
+    <Plans />
   </main>
 </template>
 
@@ -14,11 +15,13 @@
 import Paragraph from '@/components/paragraph'
 import Grid from '@/components/grid'
 import Uk from '@/components/uk'
+import Plans from '@/components/plans'
 export default {
   components: {
     'text-content': Paragraph,
     grid: Grid,
     Uk,
+    Plans,
   },
   data() {
     return {

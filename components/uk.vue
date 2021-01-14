@@ -50,11 +50,13 @@ export default {
   margin: 50px auto 0;
   width: 50%;
   text-align: center;
+  color: #635e5e;
 }
 
 .emergency-list {
   margin: 40px auto 0;
   width: 50%;
+  color: #635e5e;
 }
 
 .emergency-list__items {

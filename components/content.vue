@@ -20,7 +20,7 @@ export default {}
 }
 @media screen and (max-width: 768px) {
   .content {
-    padding: 0 40px;
+    padding: 0 30px;
   }
 }
 @media screen and (max-width: 420px) {
