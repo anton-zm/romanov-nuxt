@@ -8,6 +8,10 @@
     <grid />
     <Uk />
     <Plans />
+    <Chats />
+    <Meetings />
+    <Firms />
+    <Map />
   </main>
 </template>
 
@@ -16,12 +20,20 @@ import Paragraph from '@/components/paragraph'
 import Grid from '@/components/grid'
 import Uk from '@/components/uk'
 import Plans from '@/components/plans'
+import Chats from '@/components/chats'
+import Meetings from '@/components/meetings'
+import Map from '@/components/map'
+import Firms from '@/components/recomend'
 export default {
   components: {
     'text-content': Paragraph,
     grid: Grid,
     Uk,
     Plans,
+    Chats,
+    Meetings,
+    Map,
+    Firms,
   },
   data() {
     return {

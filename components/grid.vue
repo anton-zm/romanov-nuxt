@@ -2,6 +2,7 @@
   <section>
     <content-box class="photo">
       <img
+        @click="openPopup(photo.url)"
         v-for="photo in photos"
         :key="photo.id"
         :src="photo.url"
@@ -9,16 +10,31 @@
         :id="photo.id"
         class="photo-item"
       />
+      <Popup v-if="popup" @closePopup="togglePopup"
+        ><img :src="popupImg" class="popupImg"
+      /></Popup>
     </content-box>
   </section>
 </template>
 
 <script>
 import Content from '@/components/content'
+import Popup from '@/components/popup'
 export default {
-  components: { 'content-box': Content },
+  components: { 'content-box': Content, Popup },
+  methods: {
+    openPopup(img) {
+      this.popupImg = img
+      this.togglePopup()
+    },
+    togglePopup() {
+      this.popup = !this.popup
+    },
+  },
   data() {
     return {
+      popup: false,
+      popupImg: ``,
       photos: [
         {
           url: '/flats.jpg',
@@ -125,110 +141,23 @@ export default {
 .photo {
   width: 100%;
   margin: 100px auto 20px;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: 200px;
-  min-height: 700px;
-  grid-gap: 5px;
+  column-count: 4;
+  column-gap: 5px;
 }
 
 .photo-item {
-  object-fit: cover;
   width: 100%;
-  height: 100%;
-  transition: 1s;
+  cursor: pointer;
 }
-
-#item1 {
-  grid-row-start: 1;
-  grid-row-end: 3;
-  grid-column-start: 1;
-  grid-column-end: 2;
-}
-
-#item2 {
-  grid-column-start: 2;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
-
-#item4 {
-  grid-column-start: 5;
-  grid-column-end: 7;
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
-
-#item5 {
-  grid-column-start: 2;
-  grid-column-end: 4;
-  grid-row-start: 5;
-  grid-row-end: 6;
-}
-
-#item14 {
-  grid-row-start: 3;
-  grid-row-end: 5;
-  grid-column-start: 3;
-  grid-column-end: 4;
-}
-
-#item7 {
-  grid-row-start: 2;
-  grid-row-end: 4;
-  grid-column-start: 2;
-  grid-column-end: 3;
-}
-
-#item9 {
-  grid-column-start: 4;
-  grid-column-end: 6;
-  grid-row-start: 2;
-  grid-row-end: 4;
-}
-
-#item13 {
-  grid-column-start: 4;
-  grid-column-end: 6;
-  grid-row-start: 4;
-  grid-row-end: 5;
-}
-
-#item19 {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 4;
-  grid-row-end: 5;
-}
-
-.photo-item:hover {
-  transform: scale(1.3);
-}
-
-@media (max-width: 1024px) {
-  .photo {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .photo-item {
-    max-width: 280px;
-    height: auto;
-  }
+.popupImg {
+  max-width: 100%;
+  max-height: 95vh;
 }
 
 @media (max-width: 768px) {
   .photo {
-    display: flex;
-    flex-direction: column;
-  }
-  .photo-item {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 5px;
-  }
-  .item1 {
-    display: none;
+    column-count: 3;
+    margin: 20px auto;
   }
 }
 </style>
