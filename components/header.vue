@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Menu from '~/components/Menu'
+import Menu from '~/components/menu'
 import Content from '~/components/content'
 export default {
   components: {
