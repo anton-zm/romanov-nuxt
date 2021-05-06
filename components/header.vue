@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu'
-import Content from '@/components/content'
+import Menu from '~/components/Menu'
+import Content from '~/components/content'
 export default {
   components: {
     'header-menu': Menu,
