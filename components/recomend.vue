@@ -2,9 +2,7 @@
   <section class="recomend">
     <content-box class="recomend__content">
       <content-title :title="'Соседи рекомендуют'" />
-      <p class="recomend__subtitle">
-        Проверенные организации с хорошими отзывами
-      </p>
+      
       <ul class="recomend__container">
         <li v-for="item in firms" :key="item.img" class="list-item">
           <a :href="item.url" class="recomend__item" target="_blanc">
@@ -128,10 +126,7 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-.recomend__subtitle {
-  margin-top: 32px;
-  color: #635e5e;
-}
+
 .recomend__container {
   padding-left: 0;
   width: 100%;
@@ -140,6 +135,7 @@ export default {
   grid-template-columns: repeat(auto-fit, 100px);
   gap: 20px;
   justify-content: space-between;
+  margin-top: 48px;
 }
 .list-item {
   display: flex;
